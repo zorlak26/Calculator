@@ -6,8 +6,7 @@
 #define INCREMENT 10
 
 typedef double ElemType;
-typedef struct stack
-{
+typedef struct stack{
 	ElemType *top;
 	ElemType *base;
 	int stacksize;
@@ -16,11 +15,8 @@ typedef struct stack
 void Init(stack * s)
 {
 	s->base=(ElemType *)malloc(sizeof(ElemType)*INIT_SIZE);
-
 	s->top=s->base;
-
 	s->stacksize=INIT_SIZE-1;
-
 	return;
 }
 
@@ -28,7 +24,6 @@ void Pop(stack *s,ElemType* e)
 {
 	if(s->top==s->base)
 		return;
-		
 	*e=*--(s->top);
 		return ;
 }
@@ -43,7 +38,6 @@ void Push (stack *s, ElemType e)
 	}
 		*(s->top)=e;
 		s->top++;
-
 		return;
 }
 
@@ -66,7 +60,6 @@ int main (void)
 	char String[100];
 	char str[MAXBUFFER];
 	int i=0 ,j=0;
-	
 
 	printf("Ingresa el cálculo (Suma, Resta, multiplicación y División. Pueden usarse paréntesis).\nPresiona Enter para finalizar\nEjemplo= 5*(6+2.5)+(3-3/2)/6\n");
 	scanf("%c",&c);
@@ -142,9 +135,7 @@ int main (void)
 		else if (c==' ');
 		else {
 		 printf("ERROR: Formato incorrecto %d",c);
-			
 		}
-
 		scanf("%c",&c);
 	}
 	while(! isempty(s))
@@ -211,9 +202,7 @@ int main (void)
 		}
 		
 	}
-
 	Pop(&RPN,&d);
 	printf("\n%lf\n",d);
-
 return 0;
 }
